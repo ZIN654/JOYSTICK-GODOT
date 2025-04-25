@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpuw5elsjkq0q"]
+
+[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_d1loj"]
+[ext_resource type="PackedScene" uid="uid://dfsg5w4mflxh6" path="res://control.tscn" id="2_5v3fw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mri1l"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1dq7h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hj2ps"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jvbsn"]
+
+[sub_resource type="Sky" id="Sky_gjhyi"]
+sky_material = SubResource("ProceduralSkyMaterial_jvbsn")
+
+[sub_resource type="Environment" id="Environment_bif57"]
+background_mode = 2
+sky = SubResource("Sky_gjhyi")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+platform_on_leave = 2
+script = ExtResource("1_d1loj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03819, 0)
+shape = SubResource("CapsuleShape3D_mri1l")
+
+[node name="ANIMATEDCHAR" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05124, 0)
+
+[node name="YourCharacter" type="MeshInstance3D" parent="ANIMATEDCHAR"]
+mesh = SubResource("CapsuleMesh_1dq7h")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ANIMATEDCHAR/YourCharacter"]
+transform = Transform3D(0.279718, 0, 0, 0, 0.196677, 0, 0, 0, 1.17158, 0, 0.391739, -0.330366)
+mesh = SubResource("BoxMesh_hj2ps")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.981303, 0.192471, 0, -0.192471, 0.981303, 0, 2.46456, 3.04404)
+environment = SubResource("Environment_bif57")
+current = true
+
+[node name="Control" parent="." instance=ExtResource("2_5v3fw")]

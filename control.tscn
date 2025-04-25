@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfsg5w4mflxh6"]
+
+[ext_resource type="Script" path="res://joystick.gd" id="1_pdr60"]
+[ext_resource type="Texture2D" uid="uid://dcy0v7mci8b53" path="res://Bigcircle.png" id="2_3nhvv"]
+[ext_resource type="Texture2D" uid="uid://dcxwnaa1nk0qv" path="res://Center.png" id="3_gn46y"]
+
+[node name="Control" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JOYSTICK" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("1_pdr60")
+JoystickLocation = Vector2(100, 230)
+
+[node name="JOYSTICKLOCATION" type="PanelContainer" parent="HBoxContainer/JOYSTICK"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JOYSTICKM" type="Node2D" parent="HBoxContainer/JOYSTICK"]
+visible = false
+
+[node name="BIG" type="Sprite2D" parent="HBoxContainer/JOYSTICK/JOYSTICKM"]
+unique_name_in_owner = true
+texture = ExtResource("2_3nhvv")
+
+[node name="CENTER" type="Sprite2D" parent="HBoxContainer/JOYSTICK/JOYSTICKM/BIG"]
+unique_name_in_owner = true
+texture = ExtResource("3_gn46y")
+
+[node name="SKILLSETS" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SKILLSETS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/SKILLSETS/VBoxContainer"]
+custom_minimum_size = Vector2(198.765, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+size_flags_stretch_ratio = 19.7
+
+[node name="SKILL1" type="TextureRect" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.3
+texture = ExtResource("3_gn46y")
+
+[node name="SKILL2" type="TextureRect" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.35
+texture = ExtResource("3_gn46y")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/SKILLSETS/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="SKILL3" type="TextureRect" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_gn46y")
+stretch_mode = 3
+
+[node name="SKILL4" type="TextureRect" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_gn46y")
+stretch_mode = 3
+
+[node name="ATTTACKBTN" type="TextureRect" parent="HBoxContainer/SKILLSETS/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_3nhvv")

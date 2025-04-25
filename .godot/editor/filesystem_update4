@@ -1,0 +1,5 @@
+res://control.tscn
+res://mainscence.tres
+res://joystick.gd
+res://TSCN/PLAYER.tscn
+res://SCRIPTS/player.gd

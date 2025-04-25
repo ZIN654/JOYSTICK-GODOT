@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcogrqvvd8how"]
+
+[ext_resource type="PackedScene" uid="uid://6m1y8wtqo7ov" path="res://TSCN/FLOOR.tscn" id="1_5bv0q"]
+[ext_resource type="PackedScene" uid="uid://dpuw5elsjkq0q" path="res://TSCN/PLAYER.tscn" id="2_qh2or"]
+[ext_resource type="Environment" uid="uid://di3ptv05emena" path="res://mainscence.tres" id="4_ilugy"]
+
+[node name="MAINSCENCE" type="Node3D"]
+
+[node name="StaticBody3D" parent="." instance=ExtResource("1_5bv0q")]
+transform = Transform3D(4.3, 0, 0, 0, 4.3, 0, 0, 0, 4.3, 0, -2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.701357, 0.340036, -0.626477, -4.40791e-08, 0.878884, 0.477036, 0.71281, -0.334573, 0.616411, -2.7752, 7.3271, 5.31594)
+environment = ExtResource("4_ilugy")
+fov = 92.8125
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_ilugy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258954, 0.96589, 0, -0.96589, 0.258954, 0, 2.76684, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_qh2or")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
